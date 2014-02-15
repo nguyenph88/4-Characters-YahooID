@@ -1,13 +1,11 @@
 
 
 import os
+import itertools
+import time
 from flask import Flask, stream_with_context, request, Response, url_for
 
 app = Flask(__name__)
-
-@app.route('/')
-def hello():
-	return 'Hello Worldasd123'
 
 def stream_template(template_name, **context):
     # http://flask.pocoo.org/docs/patterns/streaming/#streaming-from-templates
@@ -19,28 +17,26 @@ def stream_template(template_name, **context):
     return rv
 
 
-@app.route('/test/')
+@app.route('/')
 def index():
     def g():
-        yield """<!doctype html>
-<title>Send javascript snippets demo</title>
-<style>
-  #data {
-    text-align: center;
-  }
-</style>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<div id="data">nothing received yet</div>
-"""
+        for i in range(1,500):
+            if i%2 == 0:
+                yield i
+            time.sleep(.1)  # an artificial delay
+    return Response(stream_template('index.html', data=g()))
 
-        for i, c in enumerate("hello"):
-            yield """
-<script>
-  $("#data").text("{i} {c}")
-</script>
-""".format(i=i, c=c)
-            time.sleep(1)  # an artificial delay
-    return Response(g())
+
+@app.route('/', methods=['POST'])
+def my_form_post():
+    text = request.form['text']
+    processed_text = text.upper()
+    def g():
+        for i,c in enumerate(processed_text):
+            yield i,c
+            time.sleep(.1)  # an artificial delay
+    return Response(stream_template('result.html', data=g()))
+    #return processed_text
 
 # It is the main call for the application
 # Do not make change or modify   

@@ -1,14 +1,21 @@
 <!doctype html>
 <title>Send javascript with template demo</title>
+
+<h1>Enter some text</h1>
+<h2>(it will be converted to uppercase)</h2>
+<form action="." method="POST">
+    <input type="text" name="text">
+    <input type="submit" name="my-form" value="Send">
+</form>
+
+
 <style>
   #data {
     text-align: center;
   }
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<div id="data">nothing received yet now</div>
-{% for i, c in data: %}
-<script>
-  $("#data").text("{{ i }} {{ c }}")
-</script>
+<div id="data">nothing received yet</div>
+{% for i in data: %}
+<br>NUmber chia2: {{ i }}</br>
 {% endfor %}
