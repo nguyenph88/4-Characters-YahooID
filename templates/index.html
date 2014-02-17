@@ -1,14 +1,17 @@
 <!doctype html>
-<title>Send javascript with template demo</title>
+<title>Yahoo ID availability checker</title>
 
-<h1>Enter some text</h1>
-<h2>(it will be converted to uppercase)</h2>
+<h1>YAHOO ID AVAILABILITY CHECKER</h1>
+<h3>This will check for the availibity of some short yahoo ID: 4 chars, 5 chars, special words etc ... 
+</br>e.g: e3rt@yahoo.com, war3@yahoo.com, yourname@yahoo.com etc ...</h3>
+<p>*Instruction:</p>
 <form action="." method="POST">
-    <input type="text" name="text">
-    <input type="submit" name="my-form" value="Send">
+    What chars (word) should include: <input type="text" name="chars">
+    How many chars max: <input type="text" name="max_number"></br>
+    <input type="submit" name="check-form" value="Check">
 </form>
 
-
+<!--
 <style>
   #data {
     text-align: center;
@@ -19,3 +22,4 @@
 {% for i in data: %}
 <br>NUmber chia2: {{ i }}</br>
 {% endfor %}
+-->
