@@ -1,14 +1,30 @@
 <!doctype html>
-<title>Send javascript with template demo</title>
-
-<br> this is the result:</br>
-<style>
-  #data {
-    text-align: center;
-  }
+<title>Check Yahoo ID</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="npploveyou - nguyenph88@gmail.com" />
+<style type="text/css">
+	body {font-family: verdana; font-size:10pt;}
+	#ListOfChar {cursor:pointer;}
+	#ListOfChar .Item {float:left;width:100px; text-align:center; border:1px dotted #000000; height:20px;margin:1px;}
+	#ListOfChar .Item:hover {background:#000000; color:#FFFFFF;}
+	#ListOfChar .Green {float:left;width:100px; text-align:center; border:1px dotted #000000; height:20px;margin:1px;background:green; color:#ffffff; font-weight:bold;}
+	#ListOfChar .Black {float:left;width:100px; text-align:center; border:1px dotted #000000; height:20px;margin:1px;color:#FFFFFF;background:#000000; text-decoration: line-through;}
+	#CheckAll {text-align:center;width:200px;float:left;background:#000000; color:#FFFFFF;font-size:12pt; padding:10px; border:1px #000000 solid;}
+	#CheckAll:hover {background:#FFFFFF; border:1px #000000 solid; color:#000000;}
+	#RemoveUsed {text-align:center;width:200px;float:left;background:#666666; color:#FFFFFF;font-size:12pt; padding:10px; border:1px #000000 solid;}
+	#RemoveUsed:hover {background:#FFFFFF; border:1px #000000 solid; color:#000000;}
+	h1 {font-size:25pt; font-family:"Palatino Linotype"; font-style:italic; font-weight:bold; margin:-10px 0px 10px 0px;}
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<div id="data">nothing received yet</div>
-{% for i in data: %}
-<br>ID: {{ i }}</br>
-{% endfor %}
+<head></head>
+<body>
+<h1>Checking Result:</h1>
+
+<p>Total combination: {{ combination }} | Generated Time: {{ gen_time }}</p>
+<div id="ListOfChar">
+	{% for i in data: %}
+	<div class='Item'>{{ i }}</div>
+	{% endfor %}
+	</div>
+</div>
+</body>

@@ -7,6 +7,8 @@ from itertools import product
 from string import ascii_lowercase, digits
 # This is for flask
 from flask import Flask, stream_with_context, request, Response, url_for
+# This is the checker class
+from checkyahoo import CheckYahoo
 
 app = Flask(__name__)
 
@@ -30,7 +32,7 @@ def index():
     return Response(stream_template('index.html', data=delay()))
 
 # Generate a list of ID to check
-def generate_words(start, length, _chars=ascii_lowercase + digits):
+def generate_list(start, length, _chars=ascii_lowercase + digits):
     remainder = length - len(start)
     if remainder < 1:
         yield start
@@ -41,22 +43,33 @@ def generate_words(start, length, _chars=ascii_lowercase + digits):
             yield ''.join(combo)
             combo.rotate()    
 
+def get_length(chars, max_number):
+    for word in generate_list(chars, max_number):
+        id_list.append(word)
+    return len(id_list)
+
 # Processing data from form
 # and prepare all the result for posting
 @app.route('/', methods=['POST'])
 def get_data():
     # Read from the from input
     chars = request.form['chars']
-    max_number = request.form['max_number']
+    max_number = int(request.form['max_number'])
 
+    # Generate list base on input from forms
     id_list = generate_list(chars, max_number)
+    combinations = 36*(max_number-len(chars))
+    gen_times = combinations * 0.000215
+
+    # Checker Class
+    checker = CheckYahoo()
+
+    def get_ids():
+        for iid, state  in id_list:
+            yield iid
+            time.sleep(.1)  # delay to make the data split out slower
     
-    print id_list
-    def extract_item_from_list():
-        for i in id_list:
-            yield i
-            time.sleep(.1)  # an artificial delay
-    return Response(stream_template('result.html', data=extract_item_from_list()))
+    return Response(stream_template('result.html', data=get_ids(), combination=combinations, gen_time=gen_times))
 
 # It is the main call for the application
 # DO NOT CHANGE
