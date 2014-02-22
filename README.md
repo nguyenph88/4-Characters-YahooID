@@ -7,7 +7,24 @@ Not only 4 chars, you can ask the problem to check for as much char as possible.
 
 Pretty much i'm still having those 4-chars yahoo ID: vn0s (most favorite, as I call it: Viet Nam Zero Second), jkre, pnps, mhiw, mgin etc...
 
+I have 2 version of the file (PHP/Python) so you can try out:
+- PHP: I wrote it like 2-3 years ago
+  http://nguyenphuoc.net/tools/4char/index.php
+-- Python: I run with 1 dyno, it's so slow and don't make me pay more :(
+  http://check4char.herokuapp.com/
+
+E.g: checking with string "concobe" and total char = 8
+
 ![Image](/imgs/img1.png?raw=true)
+
+Note - 02/21/2013
+-----
+I was working on the multi-threading to check more IDs at once but problem occurs as following:
+- All of my connections are denied, I worked around by using sock5 and it works again but takes so long.
+- All of the check in JSON returns "FAILURE" even though it's valid.
+- Speed drops down a lot and things get so cocky :(
+ 
+Problem is maybe I left my computer to check for prolly 10-20k IDs last night so it is flagged somehow :( Until I get it fixed or find another better way, feel free to try out the program on my website (may/may not work).
 
 Introduction
 ----------------
