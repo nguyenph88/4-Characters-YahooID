@@ -8,10 +8,11 @@ Not only 4 chars, you can ask the problem to check for as much char as possible.
 Pretty much i'm still having those 4-chars yahoo ID: vn0s (most favorite, as I call it: Viet Nam Zero Second), jkre, pnps, mhiw, mgin etc...
 
 I have 2 version of the file (PHP/Python) so you can try out:
-- PHP: I wrote it like 2-3 years ago
-  http://nguyenphuoc.net/tools/4char/index.php
--- Python: I run with 1 dyno, it's so slow and don't make me pay more :(
-  http://check4char.herokuapp.com/
+- PHP: I wrote it like 2-3 years ago:
+    http://nguyenphuoc.net/tools/4char/index.php
+
+- Python: I run with 1 dyno so it's slow: 
+    http://check4char.herokuapp.com/
 
 E.g: checking with string "concobe" and total char = 8
 
