@@ -7,7 +7,7 @@ Not only 4 chars, you can ask the problem to check for as much char as possible.
 
 Pretty much i'm still having those 4-chars yahoo ID: vn0s (most favorite, as I call it: Viet Nam Zero Second), jkre, pnps, mhiw, mgin etc...
 
-![Image](/img/img1.png?raw=true)
+![Image](/imgs/img1.png?raw=true)
 
 Introduction
 ----------------
@@ -25,13 +25,13 @@ Even though your info POST to yahoo server is encrypted, sometimes when we send 
 
 E.g: I want to check for ID: awer , the ID is passed as arguement as below: (part of the URL is removed)
 
-![Image](/img/img2.png?raw=true)
+![Image](/imgs/img2.png?raw=true)
 
 I will get the result like above, since that ID is already taken, as a json file.
 
 Otherwise, if i'm parsing an ID which I surely know is valid: thiswillneverbetaken12 , the result is:
 
-![Image](/img/img3.png?raw=true)
+![Image](/imgs/img3.png?raw=true)
 
 Likewise, in the JSON response I will see the success message.
 
