@@ -22,8 +22,8 @@
 
 <p>Total combination: {{ combination }} | Generated Time: {{ gen_time }}</p>
 <div id="ListOfChar">
-	{% for i in data: %}
-	<div class='Item'>{{ i }}</div>
+	{% for state, id in data: %}
+	<div class="{% if state %}Green{% else %}Black{% endif %}">{{ id }}</div>
 	{% endfor %}
 	</div>
 </div>

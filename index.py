@@ -1,4 +1,5 @@
 # Standard libraries
+# source venv/bin/activate
 import os
 import time, string
 # These 3 are for generating list libraries
@@ -65,8 +66,8 @@ def get_data():
     checker = CheckYahoo()
 
     def get_ids():
-        for iid, state  in id_list:
-            yield iid
+        for iid in id_list:
+            yield checker.check(iid), iid
             time.sleep(.1)  # delay to make the data split out slower
     
     return Response(stream_template('result.html', data=get_ids(), combination=combinations, gen_time=gen_times))
